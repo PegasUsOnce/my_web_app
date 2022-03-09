@@ -16,12 +16,6 @@ export const App: React.FC = () => {
 
 const AppInner: React.FC = () => {
   const { isAuthorized } = useContext(AuthorizaionContext)
-  // const navigate = useNavigate()
-
-  // useEffect(() => {
-  //   if (!isAuthorized)
-  //     return navigate('/login')
-  // }, [isAuthorized])
 
   return <>
     <Layout>
