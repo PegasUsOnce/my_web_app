@@ -1,15 +1,12 @@
 import React, { useCallback, useContext, useState } from 'react'
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './NavMenu.css'
 import { AuthorizaionContext } from './authorization/AuthorizationContext'
 
 export const NavMenu: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true)
-  const { isAuthorized } = useContext(AuthorizaionContext)
-  const navigate = useNavigate()
-  const goToCounter = () => navigate(isAuthorized ? '/counter' : '/login')
-
+  const { isAuthorized, signOut } = useContext(AuthorizaionContext)
   const toggleNavbar = useCallback(() => {
     setCollapsed(!collapsed)
   }, [setCollapsed, collapsed])
@@ -25,12 +22,18 @@ export const NavMenu: React.FC = () => {
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
               </NavItem>
-              <NavItem>
-                <button className="text-dark" onClick={goToCounter}>Counter</button>
-              </NavItem>
-              <NavItem>
+              {isAuthorized && <NavItem>
+                <NavLink tag={Link} className="text-dark" onClick={signOut} to="/">Sign Out</NavLink>
+              </NavItem>}
+              {!isAuthorized && <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/login">Login</NavLink>
+              </NavItem>}
+              {isAuthorized && <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
+              </NavItem>}
+              {isAuthorized && <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-              </NavItem>
+              </NavItem>}
             </ul>
           </Collapse>
         </Container>
