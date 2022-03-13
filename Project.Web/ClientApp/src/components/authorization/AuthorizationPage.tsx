@@ -1,5 +1,6 @@
 import React, { useState, useContext, useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Button } from '../shared/button'
 import { AuthorizaionContext } from './AuthorizationContext'
 
 export const AuthorizationPage: React.FC = () => {
@@ -30,6 +31,9 @@ export const AuthorizationPage: React.FC = () => {
     </div>
     <div>
       <button onClick={authorize}>Try</button>
+    </div>
+    <div>
+      <Button text ='Try' onClick={authorize} />
     </div>
   </div >
 }
