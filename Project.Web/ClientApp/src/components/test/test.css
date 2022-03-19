@@ -1,0 +1,59 @@
+/* input */
+.user-input-wrp {
+	position: relative;
+	width: 50%;
+}
+.user-input-wrp .inputText{
+	width: 100%;
+	outline: none;
+	border:none;
+  height: 40px;
+	border-bottom: 1px solid #777;
+ 	box-shadow: none !important;
+}
+.user-input-wrp .inputText:focus{
+	border-color: blue;
+	border-width: medium medium 2px;
+}
+.user-input-wrp .floating-label {
+	position: absolute;
+	pointer-events: none;
+	top: 50%;
+	left: 10px;
+	transition: 0.2s ease all;
+}
+.user-input-wrp input:focus ~ .floating-label,
+.user-input-wrp input:not(:focus):valid ~ .floating-label{
+	top: 0px;
+	left: 10px;
+	font-size: 13px;
+	opacity: 1;
+}
+/* input */
+
+
+
+/* Style the header */
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+  z-index: 100;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
