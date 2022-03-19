@@ -1,21 +1,18 @@
 import React from 'react'
-import { ButtonType } from '.'
 import styles from './Button.module.scss'
 
 interface IProps {
+  /** Текст в кнопке */
   text: string,
-  onClick: () => void
-  disabled?: boolean,
-  type?: ButtonType
+  /** Дествия по клику */
+  onClick: () => void,
+  /** Заблокирована */
+  disabled?: boolean
 }
 
-const ButtonImpl: React.FC<IProps> = ({ text, onClick, type = 'usual', disabled = false }) => {
+const ButtonImpl: React.FC<IProps> = ({ text, onClick, disabled = undefined }) => {
   return <div className={styles.buttonContainer}>
-    <div className={styles.button + ' ' + styles.usual} onClick={onClick}>
-      <div className={styles.textWrapper}>
-        {text}
-      </div>
-    </div>
+    <button className={styles.button} disabled={disabled} onClick={onClick}>{text}</button>
   </div>
 }
 
