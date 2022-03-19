@@ -3,15 +3,13 @@ import { InputType } from '.'
 import styles from './Input.module.scss'
 
 interface IProps {
-  id: string
   placeholder: string
-  value: string,
-  required?: boolean,
+  value?: string,
   type: InputType,
   onChange: (value: string) => void
 }
 
-const InputImpl: React.FC<IProps> = ({ id, placeholder, type, value, onChange, required = undefined }) => {
+const InputImpl: React.FC<IProps> = ({ placeholder, type, onChange, value = undefined }) => {
   const onChangeHandle = useCallback((e) => {
     onChange(e.target.value)
   }, [onChange])
@@ -21,9 +19,11 @@ const InputImpl: React.FC<IProps> = ({ id, placeholder, type, value, onChange, r
     <input
       type={type}
       className={styles.input}
-      required={required}
+      required={true} /** без этого не работает floating, можно подумать над другим решением */
       onChange={onChangeHandle}
-      value={value} />
+      placeholder=''
+      value={value}
+    />
     <span className={styles.floatingLabel}>{placeholder}</span>
   </div>
 }
