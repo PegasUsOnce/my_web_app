@@ -1,35 +1,31 @@
 import React, { useCallback } from 'react'
-// import styles from './Input.module.scss'
+import { InputType } from '.'
+import styles from './Input.module.scss'
 
 interface IProps {
-  id: string
   placeholder: string
-  value: string,
+  value?: string,
+  type: InputType,
   onChange: (value: string) => void
 }
 
-const InputImpl: React.FC<IProps> = ({ id, placeholder, value, onChange }) => {
+const InputImpl: React.FC<IProps> = ({ placeholder, type, onChange, value = undefined }) => {
   const onChangeHandle = useCallback((e) => {
     onChange(e.target.value)
   }, [onChange])
 
-  return <div className="inline-text-field-container">
-    <div className="mdc-text-field mdc-ripple-upgraded">
-      <input
-        className="mdc-text-field__input"
-        id={id}
-        autoCorrect="off"
-        autoComplete="off"
-        spellCheck="false"
-        maxLength={10000}
-        value={value}
-        onChange={onChangeHandle}
-      />
-      <div className="mdc-line-ripple"></div>
-      <label htmlFor={id} className="mdc-floating-label">{placeholder}</label>
-    </div>
+  return <div className={styles.inputWrapper}>
+    <br />
+    <input
+      type={type}
+      className={styles.input}
+      onChange={onChangeHandle}
+      placeholder='none'
+      value={value}
+    />
+    <span className={styles.floatingLabel}>{placeholder}</span>
   </div>
 }
 
-/** Ввод */
+/** Поле ввода */
 export const Input = React.memo(InputImpl)

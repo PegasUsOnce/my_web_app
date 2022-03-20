@@ -1,0 +1,39 @@
+@import './../variables.scss';
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+
+  .input {
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 30px;
+    border-bottom: 1px solid #777;
+    box-shadow: none !important;
+
+    &:focus {
+      border-color: $palette-primary;
+      border-width: medium medium 2px;
+    }
+  }
+
+  .floatingLabel {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 10px;
+    transition: 0.2s ease all;
+  }
+
+  .input:not(:placeholder-shown)~.floatingLabel {
+    top: 0px;
+    left: 10px;
+    font-size: calc(100% - 2px);
+    opacity: 1;
+  }
+
+  .input::placeholder {
+    opacity: 0;
+  }
+}

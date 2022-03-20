@@ -1,0 +1,11 @@
+// Внутренние переменные
+$x-color-violet: rgb(129, 103, 199);
+$x-color-white: white;
+$x-color-very-dark-grey: rgb(49, 49, 49);
+ 
+
+// Глобальные переменные
+$palette-primary: $x-color-violet;
+$text-primary: $x-color-very-dark-grey;
+$text-alternative: $x-color-white;
+
