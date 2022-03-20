@@ -19,9 +19,8 @@ const InputImpl: React.FC<IProps> = ({ placeholder, type, onChange, value = unde
     <input
       type={type}
       className={styles.input}
-      required={true} /** без этого не работает floating, можно подумать над другим решением */
       onChange={onChangeHandle}
-      placeholder=''
+      placeholder='none'
       value={value}
     />
     <span className={styles.floatingLabel}>{placeholder}</span>
