@@ -8,7 +8,7 @@ export const Home: React.FC = () => {
       <h1>Hello, world!</h1>
       <Input onChange={() => {}} placeholder='placeholder' value={undefined} type='text' />
       <br />
-      <Button text='button' onClick={() => {}} />
+      <Button text='button' onClick={() => {}} height='40px'/>
       <br />
       <p>Welcome to your new single-page application, built with:</p>
       <ul>

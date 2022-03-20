@@ -6,12 +6,15 @@ interface IProps {
   text: string,
   /** Дествия по клику */
   onClick: () => void,
+  height?: string,
   /** Заблокирована */
   disabled?: boolean
 }
 
-const ButtonImpl: React.FC<IProps> = ({ text, onClick, disabled = undefined }) => {
-  return <div className={styles.buttonContainer}>
+const ButtonImpl: React.FC<IProps> = ({ text, onClick, height = undefined, disabled = undefined }) => {
+  const style = { height: height }
+
+  return <div className={styles.buttonContainer} style={style} >
     <button className={styles.button} disabled={disabled} onClick={onClick}>{text}</button>
   </div>
 }
