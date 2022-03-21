@@ -4,6 +4,7 @@ import { Button } from '../shared/button'
 import { FlexContainer } from '../shared/flex-container'
 import { Input } from '../shared/input'
 import { AuthorizaionContext } from './AuthorizationContext'
+import styles from './AuthorizationPage.module.scss'
 
 export const AuthorizationPage: React.FC = () => {
   const [login, setLogin] = useState('')
@@ -20,9 +21,11 @@ export const AuthorizationPage: React.FC = () => {
       return navigate('/')
   }, [isAuthorized])
 
-  return <FlexContainer gap='18px' direction='vertical' margin='20px auto' width='300px'>
-    <Input onChange={setLogin} placeholder='Login' value={login} type='text' />
-    <Input onChange={setPassword} placeholder='Password' value={password} type='password' />
-    <Button text='Log In' onClick={authorize} height='40px' />
-  </FlexContainer>
+  return <div className={styles.page}>
+    <FlexContainer gap='18px' direction='vertical' padding='20px' width='300px'>
+      <Input onChange={setLogin} placeholder='Login' value={login} type='text' />
+      <Input onChange={setPassword} placeholder='Password' value={password} type='password' />
+      <Button text='Log In' onClick={authorize} height='40px' />
+    </FlexContainer>
+  </div>
 }
