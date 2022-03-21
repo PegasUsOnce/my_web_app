@@ -1,6 +1,8 @@
 import React, { useState, useContext, useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../shared/button'
+import { FlexContainer } from '../shared/flex-container'
+import { Input } from '../shared/input'
 import { AuthorizaionContext } from './AuthorizationContext'
 
 export const AuthorizationPage: React.FC = () => {
@@ -18,22 +20,9 @@ export const AuthorizationPage: React.FC = () => {
       return navigate('/')
   }, [isAuthorized])
 
-  return <div>
-    <div>
-      <input placeholder="Login" type='text' required
-        value={login}
-        onChange={(e) => setLogin(e.target.value)}
-      />
-      <input placeholder="Password" type='password' required
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-    </div>
-    <div>
-      <button onClick={authorize}>Try</button>
-    </div>
-    <div>
-      <Button text ='Try' onClick={authorize} />
-    </div>
-  </div >
+  return <FlexContainer gap='18px' direction='vertical' margin='20px auto' width='300px'>
+    <Input onChange={setLogin} placeholder='Login' value={login} type='text' />
+    <Input onChange={setPassword} placeholder='Password' value={password} type='password' />
+    <Button text='Log In' onClick={authorize} height='40px' />
+  </FlexContainer>
 }

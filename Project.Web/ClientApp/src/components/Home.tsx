@@ -1,16 +1,9 @@
 import React from 'react'
-import { Button } from './shared/button'
-import { FlexContainer } from './shared/flex-container'
-import { Input } from './shared/input'
 
 export const Home: React.FC = () => {
   return (
     <div>
       <h1>Hello, world!</h1>
-      <FlexContainer gap='10px' direction='vertical' margin='20px auto' width='300px'>
-        <Input onChange={() => { }} placeholder='placeholder' value={undefined} type='text' />
-        <Button text='button' onClick={() => { }} height='40px' />
-      </FlexContainer>
       <p>Welcome to your new single-page application, built with:</p>
       <ul>
         <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
