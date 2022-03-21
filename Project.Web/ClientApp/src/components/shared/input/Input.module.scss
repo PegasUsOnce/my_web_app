@@ -22,13 +22,13 @@
     position: absolute;
     pointer-events: none;
     top: 50%;
-    left: 10px;
+    left: 0px;
     transition: 0.2s ease all;
   }
 
   .input:not(:placeholder-shown)~.floatingLabel {
     top: 0px;
-    left: 10px;
+    left: 0px;
     font-size: calc(100% - 2px);
     opacity: 1;
   }

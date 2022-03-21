@@ -7,6 +7,6 @@ export class UserRepository {
 
   /** Зарегистрироваться */
   public async signIn (login: string, password: string): Promise<boolean> {
-    throw new Error('WIP: Авторизация недоступна')
+    throw new Error('WIP: Регистрация недоступна')
   }
 }

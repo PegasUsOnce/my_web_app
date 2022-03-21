@@ -7,6 +7,7 @@ import { AuthorizaionContext } from './authorization/AuthorizationContext'
 export const NavMenu: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true)
   const { isAuthorized, signOut } = useContext(AuthorizaionContext)
+
   const toggleNavbar = useCallback(() => {
     setCollapsed(!collapsed)
   }, [setCollapsed, collapsed])
@@ -26,7 +27,7 @@ export const NavMenu: React.FC = () => {
                 <NavLink tag={Link} className="text-dark" onClick={signOut} to="/">Sign Out</NavLink>
               </NavItem>}
               {!isAuthorized && <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/login">Login</NavLink>
+                <NavLink tag={Link} className="text-dark" to="/login">Log In</NavLink>
               </NavItem>}
               {isAuthorized && <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>

@@ -23,7 +23,7 @@ export const AuthorizaionContext = createContext<IProps>({
 
 /** Контекст авторизации */
 export const AuthorizaionContextProvider: React.FC = ({ children }) => {
-  const [isAuthorized, setAuthorized] = useState(!!localStorage.getItem('isAuthorized'))
+  const [isAuthorized, setAuthorized] = useState(localStorage.getItem('isAuthorized') === 'true')
 
   const setLocalStorage = useCallback((flag: boolean) => {
     localStorage.setItem('isAuthorized', flag.toString())

@@ -1,15 +1,9 @@
 import React from 'react'
-import { Button } from './shared/button'
-import { Input } from './shared/input'
 
 export const Home: React.FC = () => {
   return (
     <div>
       <h1>Hello, world!</h1>
-      <Input onChange={() => {}} placeholder='placeholder' value={undefined} type='text' />
-      <br />
-      <Button text='button' onClick={() => {}} />
-      <br />
       <p>Welcome to your new single-page application, built with:</p>
       <ul>
         <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
