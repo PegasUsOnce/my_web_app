@@ -14,27 +14,27 @@ export const NavMenu: React.FC = () => {
 
   return (
     <header>
-      <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
+      <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light sticky='top' >
         <Container>
           <NavbarBrand tag={Link} to="/">Project.Web</NavbarBrand>
           <NavbarToggler onClick={toggleNavbar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
             <ul className="navbar-nav flex-grow">
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-              </NavItem>
               {isAuthorized && <NavItem>
                 <NavLink tag={Link} className="text-dark" onClick={signOut} to="/">Sign Out</NavLink>
               </NavItem>}
               {!isAuthorized && <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/login">Log In</NavLink>
               </NavItem>}
-              {isAuthorized && <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-              </NavItem>}
-              {isAuthorized && <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-              </NavItem>}
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/services">Товары</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/products">Услуги</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/basket">Корзина (0)</NavLink>
+              </NavItem>
             </ul>
           </Collapse>
         </Container>
