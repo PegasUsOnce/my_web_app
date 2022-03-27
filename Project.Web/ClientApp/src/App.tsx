@@ -9,7 +9,12 @@ import { AuthorizationPage } from './components/pages/authorization/Authorizatio
 import { BasketPage } from './components/pages/basket/BasketPage'
 import { CatalogPage } from './components/pages/catalog/CatalogPage'
 
+import fontawesome from '@fortawesome/fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
 export const App: React.FC = () => {
+  fontawesome.library.add(fas)
+
   return <>
       <Layout>
         <Routes>

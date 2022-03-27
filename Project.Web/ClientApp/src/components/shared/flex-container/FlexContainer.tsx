@@ -5,17 +5,18 @@ export type FlexDirection = 'vertical' | 'horizontal'
 
 interface IProps {
   gap: string,
+  className?: string
   width?: string,
   padding?: string,
   direction: FlexDirection,
   children?: React.ReactNode
 }
 
-const FlexContainerImpl: React.FC<IProps> = ({ gap, direction, width = undefined, padding = undefined, children }) => {
-  const className = styles.flexContainer + ' ' + (direction === 'vertical' ? styles.vertical : styles.horizontal)
+const FlexContainerImpl: React.FC<IProps> = ({ gap, direction, width = undefined, padding = undefined, className = '', children }) => {
+  const className1 = `${className} ${styles.flexContainer} ${(direction === 'vertical' ? styles.vertical : styles.horizontal)}`
   const style = { gap: gap, padding: padding, width: width }
 
-  return <div className={className} style={style} >
+  return <div className={className1} style={style} >
     {children}
   </div>
 }

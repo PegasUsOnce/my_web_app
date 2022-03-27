@@ -1,11 +1,12 @@
 .flexContainer {
-  display: flex
+  display: flex;
 }
 
 .vertical {
-  flex-direction: column
+  flex-direction: column;
 }
 
 .horizontal {
-  flex-direction: row
+  align-items: center;
+  flex-direction: row;
 }

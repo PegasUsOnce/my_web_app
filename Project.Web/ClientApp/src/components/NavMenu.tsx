@@ -3,6 +3,7 @@ import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLi
 import { Link } from 'react-router-dom'
 import './NavMenu.css'
 import { AuthorizaionContext } from './authorization/AuthorizationContext'
+import { ElementWithIcon, IconType } from './shared/icon'
 
 export const NavMenu: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true)
@@ -27,13 +28,13 @@ export const NavMenu: React.FC = () => {
                 <NavLink tag={Link} className="text-dark" to="/login">Log In</NavLink>
               </NavItem>}
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/services">Товары</NavLink>
+                <NavLinkWithIcon iconType='ghost' text='Услуги' route='/services' />
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/products">Услуги</NavLink>
+                <NavLinkWithIcon iconType='apple' text='Товары' route='/products' />
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/basket">Корзина (0)</NavLink>
+                <NavLinkWithIcon iconType='cart-shopping' text='Корзина' route='/basket' />
               </NavItem>
             </ul>
           </Collapse>
@@ -41,4 +42,18 @@ export const NavMenu: React.FC = () => {
       </Navbar>
     </header>
   )
+}
+
+interface INavLinkProps {
+  text: string,
+  route: string,
+  iconType: IconType
+}
+
+const NavLinkWithIcon: React.FC<INavLinkProps> = ({ text, iconType, route }) => {
+  return <NavLink tag={Link} className="text-dark" to={route}>
+  <ElementWithIcon direction='horizontal' gap='4px' iconType={iconType} >
+    <span>{text}</span>
+    </ElementWithIcon>
+  </NavLink>
 }
