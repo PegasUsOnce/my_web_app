@@ -1,9 +1,9 @@
 import React, { useState, useContext, useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button } from '../shared/button'
-import { FlexContainer } from '../shared/flex-container'
-import { Input } from '../shared/input'
-import { AuthorizaionContext } from './AuthorizationContext'
+import { Button } from '../../shared/button'
+import { FlexContainer } from '../../shared/flex-container'
+import { Input } from '../../shared/input'
+import { AuthorizaionContext } from '../../authorization/AuthorizationContext'
 import styles from './AuthorizationPage.module.scss'
 
 export const AuthorizationPage: React.FC = () => {
